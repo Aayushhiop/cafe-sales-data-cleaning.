@@ -1,0 +1,59 @@
+Loaded raw file: 10000 rows, 8 columns
+
+Missing values BEFORE standardising placeholders (NaN only):
+  Transaction ID: 0
+  Item: 333
+  Quantity: 138
+  Price Per Unit: 179
+  Total Spent: 173
+  Payment Method: 2579
+  Location: 3265
+  Transaction Date: 159
+
+Missing values AFTER standardising ('ERROR'/'UNKNOWN' -> NaN):
+  Transaction ID: 0
+  Item: 969
+  Quantity: 479
+  Price Per Unit: 533
+  Total Spent: 502
+  Payment Method: 3178
+  Location: 3961
+  Transaction Date: 460
+
+Fully duplicate rows found: 0
+Duplicate Transaction IDs found: 0
+Rows after removing duplicates: 10000
+
+Data types after conversion:
+Transaction ID                 str
+Item                           str
+Quantity                   float64
+Price Per Unit             float64
+Total Spent                float64
+Payment Method                 str
+Location                       str
+Transaction Date    datetime64[us]
+
+Item categories found: ['Cake', 'Coffee', 'Cookie', 'Juice', 'Salad', 'Sandwich', 'Smoothie', 'Tea']
+Payment Method categories found: ['Cash', 'Credit Card', 'Digital Wallet']
+Location categories found: ['In-store', 'Takeaway']
+
+Backfilled 'Total Spent' from Quantity x Price for 462 rows
+Backfilled 'Price Per Unit' from Total / Quantity for 495 rows
+Backfilled 'Quantity' from Total / Price for 441 rows
+
+Rows where Total Spent still doesn't equal Quantity x Price after backfill: 0
+
+Dropped 0 rows that had NO usable Quantity/Price/Total data at all
+
+Remaining missing values after cleaning:
+Transaction ID        0
+Item                  0
+Quantity             38
+Price Per Unit       38
+Total Spent          40
+Payment Method        0
+Location              0
+Transaction Date    460
+
+Final cleaned dataset shape: (10000, 8)
